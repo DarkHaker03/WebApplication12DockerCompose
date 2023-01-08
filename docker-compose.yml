@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  backend:
+    image: ${DOCKER_REGISTRY-}darkhaker/webapplication12
+    build:
+      context: .
+      dockerfile: WebApplication12/Dockerfile
+
+  client:
+    image: darkhaker/client
+    build: 
+      context: ../WebApplication12Client
+      dockerfile: Dockerfile
+  
+  proxy: 
+    image: nginx:mainline
